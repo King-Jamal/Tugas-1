@@ -1,3 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Kalkulasi Tanah Orang Tua</h1>
+    <div class="content">
+        <div class="main-content">
+          <div class="persegi">
+             <h3>Luas & Keliling Tanah (Persegi)</h3>
+             <form action="" method="post" >
+                  <label for="sisi">Sisi: </label>
+                  <br>
+                  <input type="number" name="sisi" />
+                  <br>
+                  <button type="submit" name="persegi">Submit</button>
+                  <p>Hasil: </p>
+                    <div class="result">
+                      <p id="keliling_p"></p>
+                      <p id="luas_p"></p>
+                  </div>
+            </form>
+          </div>
+        <div class="persegi_panjang">
+            <h3>Luas & Keliling Tanah (Persegi Panjang)</h3>
+            <form action="" method="post">
+                <label for="panjang">Panjang: </label>
+                <br>
+                <input type="number" name="panjang" />
+                <br>
+                <label for="lebar">Lebar: </label>
+                <br>
+                <input type="number" name="lebar">
+                <br>
+                <button type="submit" name="persegi_panjang">Submit</button>
+                <p>Hasil: </p>
+                    <div class="result">
+                      <p id="keliling_pp"></p>
+                      <p id="luas_pp"></p>
+                    </div>
+            </form>
+        </div>
+        <div class="segitiga">
+            <h3>Luas Tanah (Segitiga)</h3>
+            <form action="" method="post">
+              <label for="alas">Alas: </label>
+              <br>
+              <input type="number" name="alas" />
+              <br>
+              <label for="tinggi">Tinggi: </label>
+              <br>
+              <input type="number" name="tinggi">
+              <br>
+              <button type="submit" name="segitiga">Submit</button>
+              <p>Hasil: </p>
+                  <div class="result">
+                    <p id="luas_s"></p>
+                  </div>
+            </form>
+        </div>
+        <div class="lingkaran">
+            <h3>Luas & Keliling Tanah (Lingkaran)</h3>
+            <form action="" method="post">
+              <label for="jari-jari">Jari-Jari: </label>
+              <br>
+              <input type="number" name="jari-jari" />
+              <br>
+              <button type="submit" name="lingkaran">Submit</button>
+              <p>Hasil: </p>
+                  <div class="result">
+                    <p id="keliling_l"></p>
+                    <p id="luas_l"></p>
+                  </div>
+            </form>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
 <?php
 function Persegi(){
     class Persegi{
