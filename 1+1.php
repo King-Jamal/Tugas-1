@@ -81,14 +81,52 @@
 </body>
 </html>
 <?php
-function Persegi(){
+# target form melalui button 
+if(isset($_POST['persegi_panjang'])){
+  #target data
+    if(isset($_POST['panjang'])&&isset($_POST['lebar'])){
+      #deklarasikan data
+        $panjang=$_POST["panjang"];
+        $lebar=$_POST["lebar"];
+        #buat class untuk bangun ruang
+        class Persegi_panjang {
+            #deklarasikan properti
+            public $panjang;
+            public $lebar;
+            public function __construct($panjang,$lebar){
+              #akses properti dari parameter
+              $this->panjang = $panjang;
+              $this->lebar = $lebar;
+            }
+            public function menghitung_luas(){  
+              $luas=$this->panjang*$this->lebar;
+              return $luas;
+            }
+            public function menghitung_keliling(){
+              $keliling=2*($this->panjang+$this->lebar);
+              return $keliling;
+            }
+            
+        }
+        $persegi_panjang=new Persegi_panjang($panjang,$lebar);
+        $luas=$persegi_panjang->menghitung_luas();
+        $keliling=$persegi_panjang->menghitung_keliling();
+        echo "<script>document.getElementById('keliling_pp').innerHTML='Keliling Persegi Panjang dengan panjang $persegi_panjang->panjang dan lebar $persegi_panjang->lebar adalah $keliling'</script>";
+        echo "<script>document.getElementById('luas_pp').innerHTML='Keliling Persegi Panjang dengan panjang $persegi_panjang->panjang dan lebar $persegi_panjang->lebar adalah $luas'</script>"; 
+    }
+    
+}
+
+if(isset($_POST['persegi'])){
+    if(isset($_POST['sisi'])){
+        $sisi=$_POST['sisi'];
     class Persegi{
         public $sisi;
         public function __construct($sisi){
-            $this->sisi = $sisi;
-        }
+          $this->sisi = $sisi;
+      }
         public function menghitung_luas(){
-            $luas = pow($this->sisi,2);
+            $luas=$this->sisi*$this->sisi;
             return $luas;
         }
         public function menghitung_keliling(){
@@ -96,86 +134,59 @@ function Persegi(){
             return $keliling;
         }
     }
-    $bangun_datar=new Persegi(20);
-    $luas=$bangun_datar->menghitung_luas();
-    $keliling=$bangun_datar->menghitung_keliling();
-    $result_k="<br> Keliling Persegi dengan sisi $bangun_datar->sisi adalah $keliling";
-    $result_l="<br> Luas Persegi dengan sisi $bangun_datar->sisi adalah $luas";
-    echo $result_k;
-    echo $result_l;
-}
-
-function Persegi_panjang(){
-    class Persegi_Panjang{
-        public $panjang;
-        public $lebar;
-        public function __construct($panjang,$lebar){
-            $this->panjang=$panjang;
-            $this->lebar=$lebar; 
-        }
-        public function menghitung_keliling(){
-            $keliling=2*($this->panjang+$this->lebar);
-            return $keliling;
-        }
-        public function menghitung_luas(){
-            $luas=$this->panjang*$this->lebar;
-            return $luas;
-        }
-        
-    }
-    $bangun_datar=new Persegi_Panjang(20,5);
-    $luas=$bangun_datar->menghitung_luas();
-    $keliling=$bangun_datar->menghitung_keliling();
-    $result_k="<br> Keliling Persegi Panjang dengan panjang $bangun_datar->panjang dan lebar $bangun_datar->lebar adalah $keliling";
-    $result_l= "<br> Luas Persegi Panjang dengan panjang $bangun_datar->panjang dan lebar $bangun_datar->lebar adalah $luas";
-    echo $result_k;
-    echo $result_l;
-    
-}
-function Segitiga(){
-    class Segitiga{
-        public $alas;
-        public $tinggi;
-        public function __construct($alas,$tinggi){
-            $this->alas=$alas;
-            $this->tinggi=$tinggi;
-        }
-        public function menghitung_luas(){
-            $luas=($this->alas*$this->tinggi)/2;
-            return $luas;
-        }
-    }
-    $bangun_datar=new Segitiga(20,10);
-    $luas=$bangun_datar->menghitung_luas();
-    $result_l="<br> Luas Segitiga dengan alas $bangun_datar->alas dan tinggi $bangun_datar->tinggi adalah $luas";
-    echo $result_l;
-}
-function Lingkaran(){
-    class Lingkaran{
-        public $jari_jari;
-        public function __construct($jari_jari){
-            $this->jari_jari=$jari_jari;
-        }
-        public function menghitung_keliling(){
-            $keliling=2*3.14*$this->jari_jari;
-            return $keliling;
-        }
-        public function menghitung_luas(){
-            $luas=3.14*pow($this->jari_jari,2);
-            return $luas;
-        }
+    $persegi=new Persegi($sisi);
+      $luas=$persegi->menghitung_luas();
+      $keliling=$persegi->menghitung_keliling();
+      echo "<script>document.getElementById('keliling_p').innerHTML='Keliling Persegi dengan sisi $sisi adalah $keliling'</script>";
+      echo "<script>document.getElementById('luas_p').innerHTML='Luas Persegi dengan sisi $sisi adalah $luas'</script>";
 
     }
-    $bangun_datar=new Lingkaran(14);
-    $keliling=$bangun_datar->menghitung_keliling();
-    $luas=$bangun_datar->menghitung_luas();
-    $result_k="<br> Keliling Lingkaran dengan jari-jari $bangun_datar->jari_jari adalah $keliling ";
-    $result_l="<br> Luas Lingkaran dengan jari-jari $bangun_datar->jari_jari adalah $luas";
-    echo$result_k;
-    echo $result_l;
 }
-Persegi();
-Persegi_Panjang();
-Segitiga();
-Lingkaran();
+if(isset($_POST['segitiga'])){
+    if(isset($_POST['alas'])&&isset($_POST['tinggi'])){
+        $alas=$_POST['alas'];
+        $tinggi=$_POST['tinggi'];
+        class Segitiga{
+            public $alas;
+            public $tinggi;
+            public function __construct($alas,$tinggi){
+                $this->alas=$alas;
+                $this->tinggi=$tinggi;
+            }
+            public function menghitung_luas(){
+                $luas=$this->alas*$this->tinggi/2;
+                return $luas;
+            }
+        }
+        $segitiga=new Segitiga($alas,$tinggi);
+        $luas=$segitiga->menghitung_luas();
+        echo"<script>document.getElementById('luas_s').innerHTML='Luas Segitiga dengan alas $segitiga->alas dan tinggi $segitiga->tinggi adalah $luas'</script>";
+    }
+}
+if(isset($_POST['lingkaran'])){
+    if(isset($_POST['jari-jari'])){
+        $jari_jari=$_POST['jari-jari'];
+        class Lingkaran{
+            public $jari_jari;
+            public function __construct($jari_jari){
+                $this->jari_jari=$jari_jari;
+            }
+            public function menghitung_keliling(){
+                $keliling=2*3.14*$this->jari_jari;
+                return $keliling;
+            }
+            public function menghitung_luas(){
+                $luas=3.14*pow($this->jari_jari,2);
+                return $luas;
+            }
+        }
+        $lingkaran=new Lingkaran($jari_jari);
+        $keliling=$lingkaran->menghitung_keliling();
+        $luas=$lingkaran->menghitung_luas();
+        echo"<script>document.getElementById('keliling_l').innerHTML='Keliling Lingkaran dengan jari-jari $lingkaran->jari_jari adalah $keliling'</script>";
+        echo"<script>document.getElementById('luas_l').innerHTML='Luas Lingkaran dengan jari-jari $lingkaran->jari_jari adalah $luas'</script>";
+
+    }
+}
+
 ?>
