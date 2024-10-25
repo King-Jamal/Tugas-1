@@ -4,6 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+      *{
+        font-family: Gevena;
+        box-sizing: border-box;
+      }
+      .content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .main-content{
+        display: inline-grid;
+        grid-template-columns: auto auto ;
+        row-gap: 20px;
+        column-gap: 20px;
+        padding: 20px;
+        
+      }
+      .result{
+        padding: 10px;
+        border: 2px solid black;
+        min-height: 50px;
+        width: 400px;
+        margin-top: 10px;
+        border-radius: 8px;
+      }
+      h1{
+        text-align: center;
+      }
+      h3{
+        padding-top: 16px;
+        text-align: center;
+      }
+      input{
+        border-radius: 8px;
+        width: 400px;
+        height: 30px;
+      }
+      label{
+        font-family: cursive;
+        font-style: italic;
+        font-size: 16px;
+        display: inline-block;
+      }
+      form{
+        padding: 8px;
+      }
+      button{
+        margin-top: 10px;
+        padding: 4px;
+        width: 60px;
+        font-size: 14px;
+        border-radius: 8px;
+      }
+      .persegi,.persegi_panjang,.segitiga,.lingkaran{
+        padding: 0 20px;
+        width: 450px;
+        min-height: 250px;
+        border: 2px solid black;
+        border-radius: 8px;
+      }
+    </style>
 </head>
 <body>
 <h1>Kalkulasi Tanah Orang Tua</h1>
